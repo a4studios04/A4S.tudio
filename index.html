@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A4Studio | All-in-one animation engine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+</head>
+<body>
+  <!-- Particle Background -->
+  <div id="particles-bg"></div>
+  
+  <!-- Animated Gradient Background -->
+  <div class="gradient-bg"></div>
+
+  <header class="nav">
+    <div class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40">
+        <rect x="5" y="5" width="12" height="12" fill="#ff3d3d" rx="2"/>
+        <rect x="23" y="5" width="12" height="12" fill="#ff8a00" rx="2"/>
+        <rect x="5" y="23" width="12" height="12" fill="#e52e71" rx="2"/>
+        <rect x="23" y="23" width="12" height="12" fill="#38ff7a" rx="2"/>
+      </svg>
+      <span class="logo-bold">A4</span>Studio
+    </div>
+    <nav>
+      <div class="search-container">
+        <input type="text" id="search" placeholder="Search..." class="search-input">
+        <svg class="search-icon" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="21 21l-4.35-4.35"/>
+        </svg>
+      </div>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <button class="sponsor-btn">
+        <svg class="heart-icon" viewBox="0 0 24 24">
+          <path d="M12 21s-5.3-4.8-8-8c-2.3-2.8-1.3-7 3-7 1.73 0 3 1.43 3 1.43S10.27 6 12 6c4.3 0 5.3 4.2 3 7-2.7 3.2-8 8-8 8z" fill="#e25555"/>
+        </svg>
+        Sponsor
+      </button>
+    </nav>
+  </header>
+
+  <main class="main-hero">
+    <section class="hero-left">
+      <h1 class="hero-title">All-in-one<br>animation<br>engine.</h1>
+      <p class="hero-desc">
+        A fast and versatile JavaScript library to animate HTML with stunning visual effects.
+      </p>
+      <div class="hero-actions">
+        <button class="action-dark hover-glow">
+          <svg class="btn-icon" viewBox="0 0 24 24">
+            <path d="M12 2L2 7v10c0 5.55 3.84 9.95 9 11 5.16-1.05 9-5.45 9-11V7l-10-5z"/>
+          </svg>
+          <span>npm i a4studio</span>
+        </button>
+        <button class="action-light hover-slide">
+          Learn more 
+          <svg class="chevron-icon" viewBox="0 0 24 24">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+    <section class="hero-right">
+      <svg class="hero-orb" viewBox="0 0 400 400">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#38ff7a"/>
+            <stop offset="50%" stop-color="#ffc300"/>
+            <stop offset="100%" stop-color="#ff3d3d"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#e52e71"/>
+            <stop offset="100%" stop-color="#ff8a00"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <circle cx="200" cy="200" r="180" fill="none" stroke="url(#g1)" stroke-width="6" stroke-dasharray="60 30 80 25 70 20 50 25 30 45" filter="url(#glow)"/>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="#333" stroke-width="25" opacity="0.3"/>
+        <circle id="animatedLine" cx="200" cy="200" r="120" fill="none" stroke="url(#g2)" stroke-width="5" stroke-dasharray="8 8"/>
+        <g id="animatedDots"></g>
+        <g id="floatingParticles"></g>
+        <polyline id="waveform" fill="none" stroke="#ff414d" stroke-width="4"
+            points="80,200 110,150 140,230 170,130 200,220 230,130 260,230 290,150 320,200"/>
+      </svg>
+    </section>
+  </main>
+
+  <!-- Features Section -->
+  <section id="features" class="features-section section-reveal">
+    <div class="container">
+      <h2 class="section-title">Why Choose A4Studio?</h2>
+      <div class="features-grid">
+        <div class="feature-card hover-lift">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3>Lightning Fast</h3>
+          <p>Optimized performance with minimal bundle size for smooth animations.</p>
+        </div>
+        <div class="feature-card hover-lift">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3>Easy to Use</h3>
+          <p>Simple API that makes complex animations accessible to everyone.</p>
+        </div>
+        <div class="feature-card hover-lift">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            </svg>
+          </div>
+          <h3>Versatile</h3>
+          <p>Works with HTML, CSS, SVG, DOM attributes, and JavaScript objects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section section-reveal">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="section-title">About A4Studio</h2>
+          <p>A4Studio was born from the need for a powerful, yet lightweight animation library that could handle complex animations without sacrificing performance. Our team of passionate developers has created a tool that empowers creators to bring their visions to life.</p>
+          <p>With over 50,000 developers worldwide using A4Studio, we've become the go-to solution for modern web animations. From simple transitions to complex particle systems, A4Studio handles it all with elegance and efficiency.</p>
+          <div class="stats">
+            <div class="stat">
+              <span class="stat-number">50K+</span>
+              <span class="stat-label">Developers</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">1M+</span>
+              <span class="stat-label">Downloads</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">99%</span>
+              <span class="stat-label">Satisfaction</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="floating-elements">
+            <div class="floating-element" style="--delay: 0s;">A4</div>
+            <div class="floating-element" style="--delay: 1s;">Studio</div>
+            <div class="floating-element" style="--delay: 2s;">⚡</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio-section section-reveal">
+    <div class="container">
+      <h2 class="section-title">Showcase</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item hover-zoom">
+          <div class="portfolio-image">
+            <div class="demo-animation demo-1"></div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Interactive Dashboard</h3>
+            <p>Real-time data visualization with smooth transitions</p>
+          </div>
+        </div>
+        <div class="portfolio-item hover-zoom">
+          <div class="portfolio-image">
+            <div class="demo-animation demo-2"></div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Mobile App UI</h3>
+            <p>Delightful micro-interactions for mobile interfaces</p>
+          </div>
+        </div>
+        <div class="portfolio-item hover-zoom">
+          <div class="portfolio-image">
+            <div class="demo-animation demo-3"></div>
+          </div>
+          <div class="portfolio-content">
+            <h3>E-commerce Store</h3>
+            <p>Engaging product animations and cart interactions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing-section section-reveal">
+    <div class="container">
+      <h2 class="section-title">Pricing</h2>
+      <div class="pricing-grid">
+        <div class="pricing-card hover-lift">
+          <div class="pricing-header">
+            <h3>Open Source</h3>
+            <div class="price">Free</div>
+          </div>
+          <ul class="pricing-features">
+            <li>✓ Full A4Studio library</li>
+            <li>✓ Community support</li>
+            <li>✓ Documentation</li>
+            <li>✓ MIT License</li>
+          </ul>
+          <button class="pricing-btn">Get Started</button>
+        </div>
+        <div class="pricing-card pricing-featured hover-lift">
+          <div class="pricing-header">
+            <h3>Pro</h3>
+            <div class="price">$29<span>/month</span></div>
+          </div>
+          <ul class="pricing-features">
+            <li>✓ Everything in Open Source</li>
+            <li>✓ Premium plugins</li>
+            <li>✓ Priority support</li>
+            <li>✓ Advanced tutorials</li>
+          </ul>
+          <button class="pricing-btn">Start Free Trial</button>
+        </div>
+        <div class="pricing-card hover-lift">
+          <div class="pricing-header">
+            <h3>Enterprise</h3>
+            <div class="price">Custom</div>
+          </div>
+          <ul class="pricing-features">
+            <li>✓ Everything in Pro</li>
+            <li>✓ Custom integrations</li>
+            <li>✓ Dedicated support</li>
+            <li>✓ Training sessions</li>
+          </ul>
+          <button class="pricing-btn">Contact Sales</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="team-section section-reveal">
+    <div class="container">
+      <h2 class="section-title">Meet the Team</h2>
+      <div class="team-grid">
+        <div class="team-member hover-lift">
+          <div class="member-avatar">
+            <div class="avatar-placeholder">JS</div>
+          </div>
+          <h3>John Smith</h3>
+          <p>Lead Developer</p>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <svg viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="team-member hover-lift">
+          <div class="member-avatar">
+            <div class="avatar-placeholder">AD</div>
+          </div>
+          <h3>Alice Davis</h3>
+          <p>UX Designer</p>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <svg viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="team-member hover-lift">
+          <div class="member-avatar">
+            <div class="avatar-placeholder">MJ</div>
+          </div>
+          <h3>Mike Johnson</h3>
+          <p>Backend Engineer</p>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <svg viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials-section section-reveal">
+    <div class="container">
+      <h2 class="section-title">What Developers Say</h2>
+      <div class="testimonials-slider">
+        <div class="testimonial active">
+          <div class="testimonial-content">
+            <p>"A4Studio has completely transformed how I approach web animations. The performance is incredible!"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SK</div>
+              <div class="author-info">
+                <h4>Sarah Kim</h4>
+                <span>Frontend Developer at TechCorp</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"The ease of use combined with powerful features makes A4Studio my go-to animation library."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">DL</div>
+              <div class="author-info">
+                <h4>David Liu</h4>
+                <span>Creative Director at DesignStudio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="blog-section section-reveal">
+    <div class="container">
+      <h2 class="section-title">Latest from Our Blog</h2>
+      <div class="blog-grid">
+        <article class="blog-post hover-lift">
+          <div class="post-date">Dec 15, 2024</div>
+          <h3>Advanced Animation Techniques with A4Studio</h3>
+          <p>Learn how to create complex animations using timelines and easing functions...</p>
+          <a href="#" class="read-more">Read More →</a>
+        </article>
+        <article class="blog-post hover-lift">
+          <div class="post-date">Dec 10, 2024</div>
+          <h3>Performance Optimization for Web Animations</h3>
+          <p>Best practices for maintaining smooth 60fps animations in your web applications...</p>
+          <a href="#" class="read-more">Read More →</a>
+        </article>
+        <article class="blog-post hover-lift">
+          <div class="post-date">Dec 5, 2024</div>
+          <h3>A4Studio vs Other Animation Libraries</h3>
+          <p>A comprehensive comparison of popular animation libraries and their features...</p>
+          <a href="#" class="read-more">Read More →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section section-reveal">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Let's Connect</h3>
+          <p>Have questions about A4Studio? We'd love to hear from you.</p>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>hello@a4studio.com</span>
+            </div>
+            <div class="contact-method">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+1 (555) 123-4567</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <span class="form-error"></span>
+          </div>
+          <button type="submit" class="submit-btn hover-glow">
+            Send Message
+            <svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><polygon points="22,2 15,22 11,13 2,9 22,2"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo">
+            <svg class="logo-icon" viewBox="0 0 40 40">
+              <rect x="5" y="5" width="12" height="12" fill="#ff3d3d" rx="2"/>
+              <rect x="23" y="5" width="12" height="12" fill="#ff8a00" rx="2"/>
+              <rect x="5" y="23" width="12" height="12" fill="#e52e71" rx="2"/>
+              <rect x="23" y="23" width="12" height="12" fill="#38ff7a" rx="2"/>
+            </svg>
+            <span class="logo-bold">A4</span>Studio
+          </div>
+          <p>All-in-one animation engine for modern web development.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Product</h4>
+            <a href="#">Features</a>
+            <a href="#">Pricing</a>
+            <a href="#">Documentation</a>
+          </div>
+          <div class="footer-column">
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Careers</a>
+          </div>
+          <div class="footer-column">
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">Contact</a>
+            <a href="#">Community</a>
+          </div>
+        </div>
+        <div class="footer-social">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <svg viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+            </a>
+            <a href="#" class="social-link">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 A4Studio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
